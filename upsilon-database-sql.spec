@@ -21,13 +21,11 @@ Upsilon SQL Databases
 %setup -q -n upsilon-database-sql-%{tag}
 
 %build
-mkdir -p %{buildroot}/usr/share/upsilon-databses-sql/
-cp -r mysql %{buildroot}/usr/share/upsilon-databases-sql/
+mkdir -p %{buildroot}/usr/share/upsilon-databses-sql/mysql
+cp -r mysql/* %{buildroot}/usr/share/upsilon-databases-sql/mysql
 
 %files
 /usr/share/upsilon-databases-sql/*
-
-
 
 %changelog
 * Thu Oct 26 2017 James Read <contact@jread.com> 1.0.0-1

@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+echo "username: ${CFG_DB_USER}"
+echo "password: ${CFG_DB_PASS}"
+
+mysql -h mysql -u ${CFG_DB_USER} -p${CFG_DB_PASS} upsilon < sql/schema.sql
+mysql -h mysql -u ${CFG_DB_USER} -p${CFG_DB_PASS} upsilon < sql/initialData.sql
+
