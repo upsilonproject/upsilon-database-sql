@@ -18,7 +18,7 @@ Requires:	bash
 Upsilon SQL Databases
 
 %prep
-%setup -q -n upsilon-database-sql
+%setup -q -n upsilon-database-sql-%{tag}
 
 %build
 mkdir -p %{buildroot}/usr/share/upsilon-databses-sql/
