@@ -17,7 +17,7 @@ def prepareEnv() {
 def buildRpm(dist) {                                                               
 	prepareEnv()                                                                                      
                                                                                       
-    sh 'unzip -jo SOURCES/upsilon-database-sql.zip "upsilon-database-sql-*/setup/upsilon-database-sql.spec" "upsilon-database-sql-*/.buildid.rpmmacro" -d SPECS/'
+    sh 'unzip -jo SOURCES/upsilon-database-sql.zip "upsilon-database-sql-*/upsilon-database-sql.spec" "upsilon-database-sql-*/.buildid.rpmmacro" -d SPECS/'
     sh "find ${env.WORKSPACE}"                                                     
                                                                                    
     sh "rpmbuild -ba SPECS/upsilon-database-sql.spec --define '_topdir ${env.WORKSPACE}' --define 'dist ${dist}'"
