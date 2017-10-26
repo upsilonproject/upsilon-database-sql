@@ -1,5 +1,19 @@
 #!groovy                                                                           
 
+def prepareEnv() {
+	deleteDir()                                                                    
+                                                                                   
+    unstash 'binaries'                                                             
+                                                                                   
+    env.WORKSPACE = pwd()                                                          
+                                                                                   
+    sh "find ${env.WORKSPACE}"                                                     
+
+	sh 'mkdir -p SPECS SOURCES'                                                    
+    sh "cp build/distributions/*.zip SOURCES/upsilon-database-sql.zip"                      
+}
+
+
 def buildRpm(dist) {                                                               
 	prepareEnv()                                                                                      
                                                                                       
