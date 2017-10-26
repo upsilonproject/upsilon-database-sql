@@ -11,8 +11,8 @@ License:	GPLv2
 URL:		http://www.upsilonproject.io
 Source0:	upsilon-database-sql.zip
 
-BuildRequires:	
-Requires:	
+BuildRequires:	bash
+Requires:	bash
 
 %description
 Upsilon SQL Databases
