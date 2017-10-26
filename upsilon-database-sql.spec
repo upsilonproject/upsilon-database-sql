@@ -12,7 +12,7 @@ URL:		http://www.upsilonproject.io
 Source0:	upsilon-database-sql.zip
 
 BuildRequires:	bash
-Requires:	bash
+Requires:	bash mysql
 
 %description
 Upsilon SQL Databases
@@ -21,6 +21,8 @@ Upsilon SQL Databases
 %setup -q -n upsilon-database-sql-%{tag}
 
 %build
+
+%install
 mkdir -p %{buildroot}/usr/share/upsilon-database-sql/mysql
 cp -r mysql/* %{buildroot}/usr/share/upsilon-database-sql/mysql
 
