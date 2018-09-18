@@ -209,6 +209,7 @@ CREATE TABLE `nodes` (
   `serviceCount` int(11) DEFAULT NULL,
   `lastUpdated` datetime DEFAULT NULL,
   `instanceApplicationVersion` varchar(32) DEFAULT NULL,
+  `configs` longtext DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `identifier` (`identifier`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
