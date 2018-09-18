@@ -1,0 +1,9 @@
+#!/bin/bash
+
+OUTFILE="/tmp/service_check_results.csv"
+
+echo "Using file: $OUTFILE"
+
+mysql -u root -p upsilon -e "SELECT * INTO outfile \"$OUTFILE\" FIELDS TERMINATED BY ',' ENCLOSED BY '\"'   FROM service_check_results "
+
+du -hs $OUTFILE
