@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+mysql -h mysql -u ${CFG_DB_USER} -p${CFG_DB_PASS} upsilon
+
