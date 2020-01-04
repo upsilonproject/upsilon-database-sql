@@ -1,0 +1,1 @@
+DROP TABLE class_instance_group_memberships

@@ -1,0 +1,1 @@
+ALTER TABLE remote_config_command_arguments DROP UNIQUE unq_cmd_arg

@@ -1,0 +1,1 @@
+CREATE TABLE logs (id int not null primary key auto_increment, message longtext, timestamp datetime, userId int, serviceResultId int, node int, nodeConfigId int, serviceDefinitionId int, classId int, dashboardId int, serviceGroupId int)

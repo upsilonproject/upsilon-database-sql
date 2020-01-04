@@ -1,0 +1,15 @@
+alter table widget_instances add foreign key (widget) references widgets (id);
+alter table widget_instances add foreign key (dashboard) references dashboard (id);
+alter table privileges_u add foreign key (permission) references permissions (id);
+alter table privileges_g add foreign key (permission) references permissions (id);
+alter table privileges_u add foreign key (user) references users (id);
+alter table privileges_g add foreign key (`group`) references groups (id);
+alter table users add foreign key (`group`) references groups (id);
+alter table node_group_memberships add foreign key (gid) references service_groups (id);
+alter table class_instance_group_memberships add foreign key (gid) references service_groups (id);
+alter table remote_config_allocated_nodes add foreign key (config) references remote_configs (id);
+alter table remote_config_allocated_commands add foreign key (config) references remote_configs (id);
+alter table apiClients add foreign key (user) references users (id);
+alter table widget_instances add foreign key (dashboard) references dashboard (id);
+alter table widget_instances add foreign key (widget) references widgets (id);
+alter table widget_instance_arguments add foreign key (instance) references widget_instances (id);

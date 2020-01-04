@@ -1,0 +1,1 @@
+ALTER TABLE remote_configs DROP autoSendOnUpdate

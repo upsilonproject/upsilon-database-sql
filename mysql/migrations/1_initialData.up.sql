@@ -12,5 +12,6 @@ INSERT INTO widgets (`class`) VALUES ('Tasks');
 INSERT INTO widgets (`class`) VALUES ('Events');
 INSERT INTO widgets (`class`) VALUES ('ServicesFromGroup');
 INSERT INTO widgets (`class`) VALUES ('Clock');
+INSERT INTO widgets (`class`) VALUES ('ViewClassInstances');
 INSERT INTO classes (`title`, `l`, `r`) VALUES ('Root class', 0, 1);
 INSERT INTO groups (`title`, `description`) VALUES ('Staff', 'The default user group');

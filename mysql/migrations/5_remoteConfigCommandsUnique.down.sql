@@ -1,0 +1,1 @@
+ALTER TABLE remote_config_commands DROP unq_identifier
