@@ -36,7 +36,7 @@ func main() {
 
 
 	m, err := migrate.New(
-		"file://./mysql/migrations",
+		"file:///usr/share/upsilon-database-sql/mysql/migrations",
 		mysqlUri,
 	)
 
