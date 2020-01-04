@@ -1,4 +1,5 @@
 %include SPECS/.buildid.rpmmacro
+%define debug_package %{nil}
 
 Name:		upsilon-database-sql
 Version:	%{version_formatted_short}
