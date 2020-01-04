@@ -5,7 +5,7 @@ Name:		upsilon-database-sql
 Version:	%{version_formatted_short}
 Release:	%{timestamp}.%{?dist}
 Summary:	Upsilon Databases SQL
-BuildArch:	noarch
+BuildArch:	x86_64
 
 Group:		Applications/System
 License:	GPLv2
