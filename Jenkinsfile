@@ -22,8 +22,8 @@ def buildRpm(dist) {
                                                                                    
     sh "rpmbuild -ba SPECS/upsilon-database-sql.spec --define '_topdir ${env.WORKSPACE}' --define 'dist ${dist}'"
                                                                                    
-    archive 'RPMS/noarch/*.rpm'                                                    
-	stash includes: "RPMS/noarch/*.rpm", name: dist
+    archiveArtifacts 'RPMS/x86_64/*.rpm'                                                    
+	stash includes: "RPMS/x86_64/*.rpm", name: dist
 }                                                                                  
                                                                                    
 node {                                                                             
@@ -37,7 +37,7 @@ node {
 	sh "make"
     sh "${gradle}/bin/gradle distZip"                                              
                                                                                    
-	archive 'build/distributions/*.zip'
+	archiveArtifacts 'build/distributions/*.zip'
     stash includes:"build/distributions/*.zip", name: "binaries"                   
 }                                                                                  
                                                                                    
