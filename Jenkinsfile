@@ -34,6 +34,7 @@ node {
                                                                                    
     checkout scm                                                              
 	
+	sh "make"
     sh "${gradle}/bin/gradle distZip"                                              
                                                                                    
 	archive 'build/distributions/*.zip'

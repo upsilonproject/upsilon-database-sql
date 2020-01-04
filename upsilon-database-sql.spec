@@ -21,7 +21,6 @@ Upsilon SQL Databases
 %setup -q -n upsilon-database-sql-%{tag}
 
 %build
-make
 
 %install
 mkdir -p %{buildroot}/usr/local/sbin/
