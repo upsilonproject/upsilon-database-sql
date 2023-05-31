@@ -2,6 +2,9 @@ package main;
 
 import (
 	"fmt"
+	"path/filepath"
+	"os"
+	log "github.com/sirupsen/logrus"
     "github.com/golang-migrate/migrate/v4"
 	_ "github.com/golang-migrate/migrate/v4/database/mysql"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
@@ -20,6 +23,17 @@ func initFlags() {
 	rootCmd.PersistentFlags().IntP("force", "", 0, "Force version")
 }
 
+func findDbDirectory() string {
+	path := "/usr/share/upsilon-database-sql/mysql/migrations";
+
+	if _, err := os.Stat(path); !os.IsNotExist(err) {
+		return path;
+	}
+
+	path, _ = filepath.Abs("./mysql/migrations");
+
+	return path;
+}
 
 func main() {
 	initFlags();
@@ -31,27 +45,30 @@ func main() {
 
 	mysqlUri := fmt.Sprintf("mysql://%v:%v@tcp(%v)/%v", conf.Database.User, conf.Database.Pass, conf.Database.Host, conf.Database.Name)
 
-	fmt.Printf("conf: %+v \n\n", conf);
-	fmt.Printf("db: %v \n\n", mysqlUri)
+	log.Infof("conf: %+v", conf);
+	log.Infof("db: %v", mysqlUri)
+
+	migrationsDirectory := findDbDirectory();
+	log.Infof("Migrations directory: %s", migrationsDirectory);
 
 
 	m, err := migrate.New(
-		"file:///usr/share/upsilon-database-sql/mysql/migrations",
+		"file://" + migrationsDirectory,
 		mysqlUri,
 	)
 
 	if err != nil {
-		fmt.Println("init errors:", err);
+		log.Error("init errors:", err);
 	} else {
 		ver, dirty, err := m.Version()
 
-		fmt.Println("version before migration:", ver);
+		log.Info("version before migration:", ver);
 
 		if (dirty) {
-			fmt.Println("Dirty DB");
+			log.Info("Dirty DB");
 		} else {
 			err = m.Up();
-			fmt.Println("upgrade result:", err);
+			log.Info("upgrade result:", err);
 		}
 	}
 }

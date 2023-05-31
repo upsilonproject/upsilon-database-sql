@@ -4,4 +4,4 @@
 .gradle
 build
 go.sum
-updb
+/updb

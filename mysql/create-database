@@ -1,8 +1,0 @@
-#!/usr/bin/bash
-
-echo "username: ${UP_DATABASE_USER}"
-echo "password: ${UP_DATABASE_PASS}"
-
-mysql -h ${UP_DATABASE_HOST} -u ${UP_DATABASE_USER} -p${UP_DATABASE_PASS} upsilon < sql/schema.sql
-mysql -h ${UP_DATABASE_HOST} -u ${UP_DATABASE_USER} -p${UP_DATABASE_PASS} upsilon < sql/initialData.sql
-
