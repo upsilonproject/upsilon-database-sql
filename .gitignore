@@ -3,5 +3,4 @@
 .buildid*
 .gradle
 build
-go.sum
 /updb
